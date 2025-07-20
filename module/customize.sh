@@ -45,7 +45,7 @@ main() {
 
     log "Patching"
     for DEX in "$TMPPATH/$TARGET_JAR_BASE"/classes*; do
-        if ! OP=$(paccer "$DEX" "$DEX" "$TARGET_JAR_NAME" "$API" 2>&1); then
+        if ! OP=$(paccer "$DEX" "$DEX" "$TARGET_JAR_NAME" 34 2>&1); then
             abort "ERROR: paccer failed '$OP'"
         fi
         echo "$OP" | grep -Fq notifyScreenshotListeners && {
